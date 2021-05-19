@@ -22,7 +22,7 @@ build1:
   stage: build
   script:
     - cp 'basic-example.adoc' /opt/build-space/
-    - pusdhd /opt/build-space/ && java -jar /opt/build-space/Example_AsciiDoctorJ.jar
+    - pushd /opt/build-space/ && java -jar /opt/build-space/Example_AsciiDoctorJ.jar
     - rm -f /opt/build-space/basic-example.adoc
     - popd
     - mv /opt/build-space/*.pdf .
