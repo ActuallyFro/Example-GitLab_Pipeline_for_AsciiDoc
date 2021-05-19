@@ -21,14 +21,19 @@ build1:
 test1:
   stage: test
   script:
-    - echo "Do a test here"
-    - echo "For example run a test suite"
+    - cp 'basic-example.adoc' /opt/build-space/
+    - java -jar /opt/build-space/Example_AsciiDoctorJ.jar
+    - rm /opt/build-space/basic-example.adoc
+
+  artifacts:
+    paths:
+      - "/opt/build-space/*.pdf"
 
 test2:
   stage: test
   script:
-    - echo "Do another parallel test here"
-    - echo "For example run a lint test"
+    - rm /opt/build-space/*.pdf
+    - echo "Cleaned up build-space!"
 
 deploy1:
   stage: deploy
