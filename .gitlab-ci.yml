@@ -24,10 +24,11 @@ build1:
     - cp 'basic-example.adoc' /opt/build-space/
     - cd /opt/build-space/ && java -jar /opt/build-space/Example_AsciiDoctorJ.jar
     - rm -f /opt/build-space/basic-example.adoc
+    - mv /opt/build-space/*.pdf .
 
   artifacts:
     paths:
-      - /opt/build-space/basic-example.pdf
+      - "*.pdf"
 
 test1:
   stage: test
