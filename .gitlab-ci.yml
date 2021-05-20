@@ -1,21 +1,42 @@
-build1:
+pdfs:
   stage: build
   script:
-    - cp 'basic-example.adoc' /opt/build-space/
-    - pushd /opt/build-space/ && java -jar /opt/build-space/Example_AsciiDoctorJ.jar
-    - rm -f /opt/build-space/basic-example.adoc
-    - popd
-    - mv /opt/build-space/*.pdf .
+    # - cp 'basic-example.adoc' /opt/build-space/
+    # - pushd /opt/build-space/ && java -jar /opt/build-space/Example_AsciiDoctorJ.jar
+    # - pushd /opt/build-space/ && java -jar /opt/build-space/Example_AsciiDoctorJ.jar
+    # - rm -f /opt/build-space/basic-example.adoc
+    # - popd
+    # - mv /opt/build-space/*.pdf .
+    - java -jar /opt/build-space/Example_AsciiDoctorJ.jar . pdf
 
   artifacts:
     paths:
       - "*.pdf"
+    expire_in: 1 week 
+    #default time -- see https://docs.gitlab.com/13.10/ee/ci/yaml/README.html#artifactsexpire_in
 
-test1:
-  stage: test
+htmls:
+  stage: build
   script:
-    - rm -f /opt/build-space/*.pdf
-    - echo "Cleaned up build-space!"
+    # - cp 'basic-example.adoc' /opt/build-space/
+    # - pushd /opt/build-space/ && java -jar /opt/build-space/Example_AsciiDoctorJ.jar
+    # - pushd /opt/build-space/ && java -jar /opt/build-space/Example_AsciiDoctorJ.jar
+    # - rm -f /opt/build-space/basic-example.adoc
+    # - popd
+    # - mv /opt/build-space/*.pdf .
+    - java -jar /opt/build-space/Example_AsciiDoctorJ.jar . html
+
+  artifacts:
+    paths:
+      - "*.html"
+    expire_in: 1 week 
+    #default time -- see https://docs.gitlab.com/13.10/ee/ci/yaml/README.html#artifactsexpire_in
+
+# test1:
+#   stage: test
+#   script:
+#     - rm -f /opt/build-space/*.pdf
+#     - echo "Cleaned up build-space!"
 
 deploy1:
   stage: deploy
