@@ -8,6 +8,7 @@ pdfs:
     # - popd
     # - mv /opt/build-space/*.pdf .
     - java -jar /opt/build-space/Example_AsciiDoctorJ.jar . pdf
+    #Jar here -- https://github.com/ActuallyFro/AsciiDoctorJ_Build-PDF_IntelleJ/blob/master/out/artifacts/Example_AsciiDoctorJ_jar/Example_AsciiDoctorJ.jar
 
   artifacts:
     paths:
@@ -25,6 +26,7 @@ htmls:
     # - popd
     # - mv /opt/build-space/*.pdf .
     - java -jar /opt/build-space/Example_AsciiDoctorJ.jar . html
+    #Jar here -- https://github.com/ActuallyFro/AsciiDoctorJ_Build-PDF_IntelleJ/blob/master/out/artifacts/Example_AsciiDoctorJ_jar/Example_AsciiDoctorJ.jar
 
   artifacts:
     paths:
